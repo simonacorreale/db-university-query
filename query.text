@@ -1,4 +1,5 @@
 -- 1. Selezionare tutti gli studenti iscritti al Corso di Laurea in Economia
+
 SELECT s.*
 FROM students AS s
 INNER JOIN degrees AS d ON d.id = s.degree_id 
@@ -21,6 +22,12 @@ JOIN teachers as t ON t.id = c_t.teacher_id
 WHERE t.id = 44
 
 -- 4. Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome
+
+SELECT s.surname, s.name, d.name, d.level, dep.name
+FROM students AS s
+JOIN degrees as d on d.id = s.degree_id
+JOIN departments as dep on dep.id = d.department_id
+ORDER BY s.surname, s.name
 
 -- 5. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
 
